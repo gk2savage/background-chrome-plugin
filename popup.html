@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="button.css">
+  </head>
+  <body style="height:300px; width:300px">
+    <center> <h1>Background Changer</h1> 
+
+
+    <button id="changeColor">Click here!</button> </center>
+    <script src="popup.js"></script>
+
+    
+    <p> This plugin will change your Background colour. It also has options.</p>
+
+    <p id="demo"></p>
+
+    <script>
+    chrome.tabs.query(
+    {
+        currentWindow: true,    // currently focused window
+        active: true            // selected tab
+    },
+    function (foundTabs) {
+        if (foundTabs.length > 0) {
+            var url = foundTabs[0].url; // <--- this is what you are looking for
+            document.write(url);
+        } else {
+            // there's no window or no selected tab
+        }
+    }
+);
+    </script>
+  </body>
+</html>
